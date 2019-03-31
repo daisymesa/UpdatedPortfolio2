@@ -1,0 +1,226 @@
+// Is this working?
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Set every element's box-sizing to border-box */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+
+
+}
+
+.main-container {
+
+	//MIXINS
+	.center-horizontal () {
+		display: flex;
+		justify-content: center;
+	}
+
+	.center-vertical () {
+		display: flex;
+		align-content: center;
+	}
+
+	.color-section () {
+		background: #EF767A;
+		color: white;
+	}
+
+	//VARIABLES
+	@default-font: "Open Sans", sans-serif;
+	@border-default: 2px solid #2e3842;
+
+	//MAIN CONTAINER STYLES
+	width: 90%;
+	padding: 25px;
+	line-height: 1.5;
+	margin: 0 auto;
+
+	@media (max-width: 500px) {
+		width: 100%;
+	}	
+
+	//NESTED STYLES
+	header {
+		display: flex;
+		justify-content: flex-end;
+		font-family: @default-font;
+		padding: 25px 0;
+		background: #2e3842;
+		border-radius: 10px;
+
+		a {
+			@media (max-width: 500px) {
+				display: inline;
+				padding: 10px;
+			}
+
+			padding: 25px;
+			text-decoration: none;
+			color: white;
+		}
+	}
+
+	a:hover {
+		color: #EF767A;
+	}
+
+	.headshot {
+		@media (max-width: 500px) {
+			height:175px;
+		}
+
+		height: 300px;
+		border-radius: 50%;
+		margin: 0 auto;
+		padding-right: 25px;
+	}
+
+	h1, h2, p {
+		font-family: @default-font;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	.top-section {
+		@media (max-width: 500px) {
+			display: block;
+		}
+
+		display: flex;
+
+		.color-section;
+		border-radius: 10px;
+		padding: 25px;
+
+		button {
+			font-family: @default-font;
+			font-size: 1rem;
+			padding: 10px 25px;
+			margin: 15px 0;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.intro-text {
+			width: 50%;
+			padding: 15px;
+
+			@media (max-width: 500px) {
+				width: 100%;
+			}	
+		}
+	}
+
+	.middle-content {
+		@media (max-width: 500px) {
+			display: block;
+		}
+
+		display: flex;
+
+		h2 {
+			font-weight: bold;
+		}
+
+		.middle-content-section{
+			@media (max-width: 500px) {
+				width: 100%;
+			}	
+
+			width: 49%;
+			padding: 25px;
+
+			li {
+				border-top: @border-default;
+				padding: 10px;
+				font-family: @default-font;
+			}
+			ul {
+				border-bottom: @border-default;
+			}
+		}		
+	}
+
+	table {
+		border: @border-default;
+		font-family: @default-font;
+		width: 95%;
+		margin: 0 auto;
+		text-align: left;
+
+		th {
+			font-weight: bold;
+		}
+
+		.even-row {
+			background: #2e3842;
+			color: white;
+		}
+	}
+
+	footer {
+		.center-horizontal;
+		.color-section;
+		margin-top: 25px;
+		padding: 15px 0;
+		border-radius: 10px;
+	}
+}
